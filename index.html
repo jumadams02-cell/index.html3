@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty of Science & Technology - Mutessa I Royal University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            width: 200px;
+            background: linear-gradient(to bottom, #1a3a5f, #2c5282);
+            color: white;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .navbar h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .navbar ul {
+            list-style: none;
+        }
+        
+        .navbar li {
+            margin-bottom: 5px;
+        }
+        
+        .navbar a {
+            display: block;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .navbar a:hover, .navbar a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4fd1c5;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-header img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            color: #2c5282;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: #ebf4ff;
+            color: #2c5282;
+        }
+        
+        .sidebar-menu i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .page-header {
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 28px;
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            list-style: none;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .breadcrumb li:after {
+            content: '/';
+            margin: 0 10px;
+        }
+        
+        .breadcrumb li:last-child:after {
+            content: '';
+        }
+        
+        /* Courses Table */
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-header h2 {
+            font-size: 20px;
+            color: #2d3748;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background-color: #f8fafc;
+            color: #4a5568;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f7fafc;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background-color: #c6f6d5;
+            color: #2f855a;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #718096;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .navbar, .sidebar {
+                width: 100%;
+            }
+            
+            .navbar {
+                order: 1;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <header>
+            <h1>Mutessa I Royal University</h1>
+        </header>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Admissions</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="c:\Users\DELL\Desktop\JUMA WORK\Images\muteesa-1-royal-university-mru-logo-png_seeklogo-550326.png">
+            <h2>Faculty Portal</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active">📊 Dashboard</a></li>
+            <li><a href="#">📚 Courses</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+            <li><a href="#">👤 Profile</a></li>
+            <li><a href="#">📅 Calendar</a></li>
+            <li><a href="#">📊 Grades</a></li>
+            <li><a href="#">🔍 Resources</a></li>
+            <li><a href="#">❓ Help</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Faculty of Science and Technology</h1>
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <li>Faculties</li>
+                <li>Science & Technology</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Available Courses</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Credits</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>CS101</td>
+                        <td>Introduction to Computer Science</td>
+                        <td>4</td>
+                        <td>2 Semesters</td>
+                        <td><span class="status status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>MT205</td>
+                        <td>Advanced Mathematics</td>
+                        <td>3</td>
+                        <td>1 Semester</td>
+                        <td><span class="status status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>PH301</td>
+                        <td>Modern Physics</td>
+                        <td>4</td>
+                        <td>2 Semesters</td>
+                        <td><span class="status status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>CH401</td>
+                        <td>Organic Chemistry</td>
+                        <td>3</td>
+                        <td>1 Semester</td>
+                        <td><span class="status status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>BE501</td>
+                        <td>Biomedical Engineering</td>
+                        <td>4</td>
+                        <td>2 Semesters</td>
+                        <td><span class="status status-active">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>About the Faculty</h2>
+            </div>
+            <p>The Faculty of Science and Technology at Mutessa I Royal University is committed to excellence in teaching and research. We offer a wide range of programs designed to prepare students for careers in various scientific and technological fields.</p>
+            <p>Our faculty members are renowned experts in their respective fields, and our facilities include state-of-the-art laboratories and research centers.</p>
+        </div>
+
+        <footer>
+            <p>© 2023 Mutessa I Royal University - Faculty of Science and Technology. All rights reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
